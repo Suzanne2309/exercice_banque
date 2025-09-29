@@ -13,25 +13,26 @@ class CompteBancaire{
         $this->_soldeInitial = $soldeInitial;
         $this->_uniteMonnaie = $uniteMonnaie;
         $this->_titulaire = $titulaire;
+        $titulaire->ajouterCompteBancaire($this);
     }
 
     /* Libellé */
     public function getLibelle(){
-        return $this->$_libelle;
+        return $this->_libelle;
     }
     public function setLibelle(){
         $this->_libelle = $libelle;
     }
     /* Solde initial */
     public function getSoldeInitial(){
-        return $this->$_soldeInitial;
+        return $this->_soldeInitial;
     }
     public function setSoldeInitial(){
         $this->_soldeInitial = $soldeInitial;
     }
     /* Unité Monnaietaire */
     public function getUniteMonnaie(){
-        return $this->$_uniteMonnaie;
+        return $this->_uniteMonnaie;
     }
     public function setUniteMonnaie(){
         $this->_uniteMonnaie = $uniteMonnaie;
@@ -53,6 +54,17 @@ class CompteBancaire{
     public function debiter($montant){
         $this->_soldeInitial -= $montant; //On déduis le montant qu'on indiquera lorsqu'on fera appel à la fonction
         return $this->_soldeInitial;
+    }
+
+    public function virement(CompteBancaire $compteBancaire, $montant){ //On passe en paramètre notre compteBancaire et notre montant
+        //Pour un virement, on doit debiter un compte A puis crediter le compte B
+        if ($montant >= 0){
+        if($this->getSoldeInitial() >= $montant){
+            $this->debiter($montant); //SI on debite du compte le montant
+            $compteBancaire->crediter($montant); // ALORS on credtie le montant du compteBancaire demandé
+            return $this->_soldeInitial; //On actualise le solde Initial
+        } else {return "Le compte n'a pas de solde suffissant pour être débiter !<br>"; };
+        } else {return "Erreur : montant invalide <br>";}
     }
 
     //Méthodes magiques

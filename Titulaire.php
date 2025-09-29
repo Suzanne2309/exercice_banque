@@ -56,11 +56,12 @@ class Titulaire{
     public function afficherCompteBancaires(){ 
         forEach($this->_compteBancaires as $compteBancaire) {
             $resultat = "Compte : " . $compteBancaire . ", <br>";
+            return $resultat;
         }
     }
 
     public function calculAge(){
-        $birth_date = self::getDateNaissance(); //on récupère la date de naissance de l'auteur
+        $birth_date = $this->getDateNaissance(); //on récupère la date de naissance de l'auteur
         $actual_date = date("Y-m-d"); //on utilise la fonction prédéfinie date qui va peremttre de récupérer la date actuelle
         $birth_date_obj = new DateTime($birth_date); //On fait appelle à une class prédifinie pour créer une nouvelle classe de date anniversaire
         $actual_date_obj = new DateTime($actual_date); //On fait appelle à une class prédifinie pour créer une nouvelle classe de date actuelle
@@ -71,7 +72,7 @@ class Titulaire{
 
     //Méthodes magiques
     public function __toString(){
-        return " " . $this->_nom . " " . $this->_prenom . ", " . $this->calculAge() . ", possédant " . $this->afficherCompteBancaires();
+        return " " . $this->_nom . " " . $this->_prenom . ", " . $this->calculAge() . ", possédant " . $this->afficherCompteBancaires() . "<br>";
     }
 
 }
