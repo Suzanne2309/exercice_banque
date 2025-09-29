@@ -69,7 +69,7 @@ class CompteBancaire{
 
     //Méthodes magiques
     public function __toString(){
-        return "Ce compte bancaire " . $this->_libelle . " avec " . $this->_soldeInitial . "" . $this->_uniteMonnaie . " .<br>";
+        return "Ce compte bancaire " . $this->_libelle . " avec " . $this->_soldeInitial . "" . $this->_uniteMonnaie . "<br>";
     }
 }
 

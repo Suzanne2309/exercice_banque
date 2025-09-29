@@ -54,10 +54,10 @@ class Titulaire{
     }
 
     public function afficherCompteBancaires(){ 
-        forEach($this->_compteBancaires as $compteBancaire) {
-            $resultat = "Compte : " . $compteBancaire . ", <br>";
+        forEach($this->_compteBancaires as $compteBancaire) { //Pour chaque compteBancaire du tableau compteBancaires
+            $resultat = "Compte : " . $compteBancaire . ", <br>"; // On affiche la phrase "Compte : toString de la classe CompteBancaire du compte"
         }
-        return;
+        return; //On appel le return en dehors de la fonction forEach, car si on le met à l'intérieur de la boucle, la fonction va s'arrêter au premier compte affiché
     }
 
     public function calculAge(){
