@@ -10,8 +10,6 @@ $compteBancaire2 = new CompteBancaire("Livret B", 1500, "€", $titulaire1);
 $compteBancaire3 = new CompteBancaire("Livret C", 500, "€", $titulaire1);
 
 echo $titulaire1;
-//Test afficher compte (marche pas)
-echo $titulaire1->afficherCompteBancaires();
 
 echo $compteBancaire1;
 echo $compteBancaire2;

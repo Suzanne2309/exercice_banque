@@ -42,7 +42,7 @@ class CompteBancaire{
         return $this->_titulaire;
     }
     public function setTitulaire(){
-        $this->_titulaire = $_titulaire;
+        $this->_titulaire = $titulaire;
     }
 
     //Méthodes
