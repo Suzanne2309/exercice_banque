@@ -56,8 +56,8 @@ class Titulaire{
     public function afficherCompteBancaires(){ 
         forEach($this->_compteBancaires as $compteBancaire) {
             $resultat = "Compte : " . $compteBancaire . ", <br>";
-            return $resultat;
         }
+        return;
     }
 
     public function calculAge(){
