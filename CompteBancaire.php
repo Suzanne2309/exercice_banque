@@ -63,13 +63,13 @@ class CompteBancaire{
             $this->debiter($montant); //SI on debite du compte le montant
             $compteBancaire->crediter($montant); // ALORS on credtie le montant du compteBancaire demandé
             return $this->_soldeInitial; //On actualise le solde Initial
-        } else {return "Le compte n'a pas de solde suffissant pour être débiter !<br>"; };
+        } else {return "Le compte n'a pas de solde suffissant pour être débiter !<br>";};
         } else {return "Erreur : montant invalide <br>";}
     }
 
     //Méthodes magiques
     public function __toString(){
-        return "Ce compte bancaire " . $this->_libelle . " avec " . $this->_soldeInitial . "" . $this->_uniteMonnaie . "<br>";
+        return "Ce compte bancaire " . $this->_libelle . " est à " . $this->_soldeInitial . "" . $this->_uniteMonnaie . "<br>";
     }
 }
 
